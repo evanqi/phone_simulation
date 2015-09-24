@@ -1,5 +1,12 @@
 class ConnectionsController < ApplicationController
-  before_action :set_connection, only: [:show, :edit, :update, :destroy]
+  before_action :set_connection,
+    only: [:show,
+           :edit,
+           :update,
+           :destroy,
+           :return_greeting,
+           :send_voicemail,
+           :send_digit]
 
   # GET /connections
   # GET /connections.json
@@ -60,6 +67,29 @@ class ConnectionsController < ApplicationController
       format.html { redirect_to connections_url, notice: 'Connection was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # POST /connections/1/return_greeting
+  # For answering machine to tell the system that it should stop
+  # ringing and return a voicemail greeting
+  def return_greeting
+    @connection.update_attribute(:state, :recording)
+    # Pass greeting back to external phone
+    logger.info "Returning voicemail greeting #{params[:greeting]}"
+  end
+
+  # POST /connections/1/leave_voicemail
+  # For external phone to leave a voicemail
+  def leave_voicemail
+    logger.info "Sending voicemail #{params[:voicemail]}"
+    # Store voicemail for this connection
+  end
+
+  # POST /connections/1/send_digit
+  # For external phone to send a digit
+  def send_digit
+    logger.info "Sending digit #{params[:digit]}"
+    # Pass the digit to all answering machines
   end
 
   private
