@@ -17,7 +17,7 @@
     <% @voicemails.each do |voicemail| %>
       <tr>
         <td><%= voicemail.audio %></td>
-        <td><%= voicemail.connection %></td>
+        <td><%= voicemail.connection_id %></td>
         <td><%= voicemail.created_at %></td>
         <td><%= voicemail.has_been_listened %></td>
         <td><%= link_to 'Show', voicemail %></td>
