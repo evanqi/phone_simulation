@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Audio:</strong>
+  <%= @voicemail.audio %>
+</p>
+
+<p>
+  <strong>Connection:</strong>
+  <%= @voicemail.connection %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @voicemail.created_at %>
+</p>
+
+<p>
+  <strong>Has been listened:</strong>
+  <%= @voicemail.has_been_listened %>
+</p>
+
+<%= link_to 'Edit', edit_voicemail_path(@voicemail) %> |
+<%= link_to 'Back', voicemails_path %>

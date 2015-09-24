@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924141803) do
+ActiveRecord::Schema.define(version: 20150924143302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,4 +25,15 @@ ActiveRecord::Schema.define(version: 20150924141803) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "voicemails", force: :cascade do |t|
+    t.string   "audio"
+    t.integer  "connection_id"
+    t.datetime "created_at",        null: false
+    t.boolean  "has_been_listened"
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "voicemails", ["connection_id"], name: "index_voicemails_on_connection_id", using: :btree
+
+  add_foreign_key "voicemails", "connections"
 end

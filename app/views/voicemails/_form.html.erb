@@ -1,0 +1,33 @@
+<%= form_for(@voicemail) do |f| %>
+  <% if @voicemail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voicemail.errors.count, "error") %> prohibited this voicemail from being saved:</h2>
+
+      <ul>
+      <% @voicemail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :audio %><br>
+    <%= f.text_field :audio %>
+  </div>
+  <div class="field">
+    <%= f.label :connection_id %><br>
+    <%= f.text_field :connection_id %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :has_been_listened %><br>
+    <%= f.check_box :has_been_listened %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
