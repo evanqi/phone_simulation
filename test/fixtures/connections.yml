@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: 1
+  incoming_url: MyString
+  incoming_phone_num: 1
+  incoming_caller_id: 1
+
+two:
+  state: 1
+  incoming_url: MyString
+  incoming_phone_num: 1
+  incoming_caller_id: 1
