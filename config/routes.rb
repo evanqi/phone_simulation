@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'pages#index'
   resources :voicemails
   resources :answering_machines
   resources :connections do
