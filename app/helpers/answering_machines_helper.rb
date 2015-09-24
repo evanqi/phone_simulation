@@ -1,0 +1,2 @@
+module AnsweringMachinesHelper
+end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Answering Machines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answering_machines.each do |answering_machine| %>
+      <tr>
+        <td><%= answering_machine.url %></td>
+        <td><%= link_to 'Show', answering_machine %></td>
+        <td><%= link_to 'Edit', edit_answering_machine_path(answering_machine) %></td>
+        <td><%= link_to 'Destroy', answering_machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Answering machine', new_answering_machine_path %>

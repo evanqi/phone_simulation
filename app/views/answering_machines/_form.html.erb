@@ -1,0 +1,21 @@
+<%= form_for(@answering_machine) do |f| %>
+  <% if @answering_machine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@answering_machine.errors.count, "error") %> prohibited this answering_machine from being saved:</h2>
+
+      <ul>
+      <% @answering_machine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
