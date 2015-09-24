@@ -25,6 +25,7 @@ class ConnectionsController < ApplicationController
   # POST /connections.json
   def create
     @connection = Connection.new(connection_params)
+    @connection.state = :pending
 
     respond_to do |format|
       if @connection.save
