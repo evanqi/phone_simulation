@@ -1,4 +1,4 @@
 class Connection < ActiveRecord::Base
   has_one :voicemail
-  enum state: [:pending, :talking, :recording, :closed]
+  enum state: [:ringing, :recording, :closed]
 end

@@ -32,7 +32,7 @@ class ConnectionsController < ApplicationController
   # POST /connections.json
   def create
     @connection = Connection.new(connection_params)
-    @connection.state = :pending
+    @connection.state = :ringing
 
     respond_to do |format|
       if @connection.save
