@@ -27,12 +27,13 @@ class ConnectionsController < ApplicationController
   # GET /connections/1/edit
   def edit
   end
-  
+
   # POST /connections
   # POST /connections.json
   def create
     @connection = Connection.new(connection_params)
     @connection.state = :ringing
+    Log.create(:description => "Incoming connection received")
 
     respond_to do |format|
       if @connection.save
