@@ -233,18 +233,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Sample logging that will be replaced</td>
-          <td>09/23/15 9:07 PM</td>
-        </tr>
-        <tr>
-          <td>Sample logging that will be replaced</td>
-          <td>09/23/15 9:07 PM</td>
-        </tr>
-        <tr>
-          <td>Sample logging that will be replaced</td>
-          <td>09/23/15 9:07 PM</td>
-        </tr>
+        <% @logs.first(10).each do |log| %>
+          <tr>
+            <td><%= log.description %></td>
+            <td><%= log.created_at %></td>
+          </tr>
+        <%end%>
       </tbody>
     </table>
   </div>

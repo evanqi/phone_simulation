@@ -25,7 +25,7 @@ class VoicemailsController < ApplicationController
   # POST /voicemails.json
   def create
     @voicemail = Voicemail.new(voicemail_params)
-
+    Log.create(:description => "Voicemail recorded: \"" + @voicemail.audio + "\"")
     respond_to do |format|
       if @voicemail.save
         format.html { redirect_to @voicemail, notice: 'Voicemail was successfully created.' }
