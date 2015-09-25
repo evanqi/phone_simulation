@@ -7,7 +7,7 @@
 
 <p>
   <strong>Connection:</strong>
-  <%= @voicemail.connection %>
+  <%= @voicemail.connection_id %>
 </p>
 
 <p>
@@ -20,5 +20,5 @@
   <%= @voicemail.has_been_listened %>
 </p>
 
-<%= link_to 'Edit', edit_voicemail_path(@voicemail) %> |
+<%= link_to 'Destroy', @voicemail, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', voicemails_path %>
