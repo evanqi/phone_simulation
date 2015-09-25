@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Audio</th>
-      <th>Connection</th>
-      <th>Created at</th>
-      <th>Has been listened</th>
+      <th>&nbspConnection</th>
+      <th>&nbspCreated at</th>
+      <th>&nbspHas been listened</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,17 +17,14 @@
     <% @voicemails.each do |voicemail| %>
       <tr>
         <td><%= voicemail.audio %></td>
-        <td><%= voicemail.connection_id %></td>
-        <td><%= voicemail.created_at %></td>
-        <td><%= voicemail.has_been_listened %></td>
-        <td><%= link_to 'Show', voicemail %></td>
-        <td><%= link_to 'Edit', edit_voicemail_path(voicemail) %></td>
-        <td><%= link_to 'Destroy', voicemail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>&nbsp<%= voicemail.connection_id %></td>
+        <td>&nbsp<%= voicemail.created_at %></td>
+        <td>&nbsp<%= voicemail.has_been_listened %></td>
+        <td>&nbsp<%= link_to 'Show', voicemail %> |</td>
+        <td>&nbsp<%= link_to 'Destroy', voicemail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Voicemail', new_voicemail_path %>
