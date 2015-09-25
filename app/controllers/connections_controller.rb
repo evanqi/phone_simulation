@@ -27,7 +27,7 @@ class ConnectionsController < ApplicationController
   # GET /connections/1/edit
   def edit
   end
-
+  
   # POST /connections
   # POST /connections.json
   def create
