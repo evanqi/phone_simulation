@@ -4,4 +4,34 @@
 
 .header {
   text-align: center;
+  margin-bottom: 50px;
+}
+
+.ui-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+  .phone-container {
+    flex-basis: 100%;
+    border-right: thick solid ghostwhite;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .system-container {
+    flex-basis: 100%;
+    border-right: thick solid ghostwhite;
+    padding: 20px;
+
+    h4 {
+      text-align: center;
+    }
+  }
+
+  .answering-machine-container {
+    flex-basis: 100%;
+    text-align: center;
+    padding: 20px;
+  }
 }
