@@ -3,14 +3,15 @@
   <% if !@con.nil? %>
     <p><b>Current Connection State: </b><%= @con.state %></p>
   <% else %>
-    <p><b>Current Connection State: </b>CLOSED</p>
+    <p><b>Current Connection State: </b>NO CONNECTION</p>
   <% end %>
 </div>
 <div class="ui-container">
   <div class="phone-container">
     <h4>External Phone</h4>
+
     <% if !@con.nil? %>
-      <table>
+      <table id="dialer" data-connectionid="<%= @con.id %>">
         <tr>
           <td>
             <%= link_to '1',send_digit_connection_path(@con.id, :digit => 1), method: :post, :class=>"btn btn-default" %>
@@ -55,14 +56,16 @@
     <% end %>
 
     <% if @con.nil? %>
-      <%= link_to 'Start Call', new_connection_path, :class=>"btn btn-default" %>
+      <%= link_to 'Start Call', connections_path(:connection => { :state => :ringing }), :method => :post, :class=>"btn btn-default" %>
     <% end %>
-
+    
     <% if !@con.nil? %>
       <%= link_to 'Hang Up',
       connection_path(@con.id, :connection => { :state => :closed }), :method => :put, :class=> "btn btn-default" %>
+      <% if @con.state == "recording" %>
+        <%= link_to 'Record Voicemail', '#', :id => "voicemail-link", :class=>"btn btn-default" %>
+      <% end %>
     <% end %>
-    <%= link_to 'Record Voicemail', new_voicemail_path, :class=>"btn btn-default" %>
 
   </div>
   <div class="system-container">
@@ -87,10 +90,8 @@
   <div class="answering-machine-container">
     <h4>Answering Machine</h4>
     <%= link_to "Listen to Voicemails", voicemails_path, :class => "btn btn-default" %>
-    <% if !@con.nil? %>
-      <%= link_to "Decline Call", connection_path(@con.id, :connection => { :state => :recording }), :method => :put, :class => "btn btn-default" %>
+    <% if !@con.nil? && @con.state == "ringing" %>
+      <%= link_to "Stop Ringing", connection_path(@con.id, :connection => { :state => :recording }), :method => :put, :class => "btn btn-default" %>
     <% end %>
   </div>
 </div>
-
-

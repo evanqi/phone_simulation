@@ -1,3 +1,17 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('#voicemail-link').click (event) ->
+    voicemail = prompt("Enter a voicemail message")
+
+    if voicemail?
+      $.ajax
+        type: "post"
+        url: "/voicemails/"
+        dataType: "JSON"
+        data:
+          voicemail:
+            connection_id: $('#dialer').data('connectionid')
+            audio: voicemail
+        success: () ->
+          document.location.reload(true)
+    event.preventDefault()
+

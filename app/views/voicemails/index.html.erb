@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Voicemails</h1>
+<h1>Voicemails</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Audio</th>
-      <th>&nbspConnection</th>
-      <th>&nbspCreated at</th>
-      <th>&nbspHas been listened</th>
+      <th>Connection</th>
+      <th>Created at</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +16,13 @@
     <% @voicemails.each do |voicemail| %>
       <tr>
         <td><%= voicemail.audio %></td>
-        <td>&nbsp<%= voicemail.connection_id %></td>
-        <td>&nbsp<%= voicemail.created_at %></td>
-        <td>&nbsp<%= voicemail.has_been_listened %></td>
-        <td>&nbsp<%= link_to 'Show', voicemail %> |</td>
-        <td>&nbsp<%= link_to 'Destroy', voicemail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= voicemail.connection_id %></td>
+        <td>
+          <%= voicemail.created_at %>
+          &nbsp&nbsp
+          <%= link_to 'Show', voicemail %>
+          <%= link_to 'Destroy', voicemail, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -28,7 +28,10 @@ class VoicemailsController < ApplicationController
     Log.create(:description => "Voicemail recorded: \"" + @voicemail.audio + "\"")
     respond_to do |format|
       if @voicemail.save
-        format.html { redirect_to @voicemail, notice: 'Voicemail was successfully created.' }
+        @voicemail.connection.state = :closed
+        @voicemail.connection.save
+
+        format.html { redirect_to root_path, notice: 'Voicemail was successfully created.' }
         format.json { render :show, status: :created, location: @voicemail }
       else
         format.html { render :new }
