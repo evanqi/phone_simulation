@@ -244,7 +244,8 @@
   </div>
   <div class="answering-machine-container">
     <h4>Answering Machine</h4>
-    <%= link_to "Listen to Voicemails", voicemails_path, :class => "btn btn-default"%>
+    <%= link_to "Listen to Voicemails", voicemails_path, :class => "btn btn-default" %>
+    <%= link_to "Hang Up", connection_path(@con.id, :connection => { :state => :closed }), :method => :put, :class => "btn btn-default" %>
   </div>
 </div>
 
