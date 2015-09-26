@@ -1,9 +1,9 @@
 <div class="header">
   <h1>Simulator</h1>
   <% if !@con.nil? %>
-  <p><b>Current Connection State: </b><%= @con.state %></p>
+    <p><b>Current Connection State: </b><%= @con.state %></p>
   <% else %>
-  <p><b>Current Connection State: </b>CLOSED</p>
+    <p><b>Current Connection State: </b>CLOSED</p>
   <% end %>
 </div>
 <div class="ui-container">
@@ -222,9 +222,7 @@
       <% if !@con.nil? %>
         <%= link_to 'Send Digit',send_digit_connection_path(@con.id), :class=>"btn btn-default" %>
         <%= link_to 'Hang Up',
-        connection_path(@con.id, 
-        :connection => { :state => :closed }),
-        :method => :put, :class=>"btn btn-default" %>
+        connection_path(@con.id, :connection => { :state => :closed }), :method => :put, :class=> "btn btn-default" %>
       <% end %>
       <%= link_to 'Record Voicemail', new_voicemail_path, :class=>"btn btn-default" %>
 
