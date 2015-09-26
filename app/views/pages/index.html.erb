@@ -59,7 +59,6 @@
     <% end %>
 
     <% if !@con.nil? %>
-      <%= link_to 'Send Digit',send_digit_connection_path(@con.id), :class=>"btn btn-default" %>
       <%= link_to 'Hang Up',
       connection_path(@con.id, :connection => { :state => :closed }), :method => :put, :class=> "btn btn-default" %>
     <% end %>
