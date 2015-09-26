@@ -9,6 +9,7 @@
 <div class="ui-container">
   <div class="phone-container">
     <h4>External Phone</h4>
+    <% if !@con.nil? %>
       <table>
         <tr>
           <td>
@@ -19,7 +20,7 @@
           </td>
           <td>
             <%= link_to '3',send_digit_connection_path(@con.id, :digit => 3), method: :post, :class=>"btn btn-default" %>
-          </td>
+          </td> 
         </tr>
         <tr>
           <td>
@@ -51,19 +52,20 @@
           <td></td>
         </tr>
       </table>
+    <% end %>
 
-      <% if @con.nil? %>
-        <%= link_to 'Start Call', new_connection_path, :class=>"btn btn-default" %>
-      <% end %>
-      
-      <% if !@con.nil? %>
-        <%= link_to 'Send Digit',send_digit_connection_path(@con.id), :class=>"btn btn-default" %>
-        <%= link_to 'Hang Up',
-        connection_path(@con.id, :connection => { :state => :closed }), :method => :put, :class=> "btn btn-default" %>
-      <% end %>
-      <%= link_to 'Record Voicemail', new_voicemail_path, :class=>"btn btn-default" %>
+    <% if @con.nil? %>
+      <%= link_to 'Start Call', new_connection_path, :class=>"btn btn-default" %>
+    <% end %>
 
-    </div>
+    <% if !@con.nil? %>
+      <%= link_to 'Send Digit',send_digit_connection_path(@con.id), :class=>"btn btn-default" %>
+      <%= link_to 'Hang Up',
+      connection_path(@con.id, :connection => { :state => :closed }), :method => :put, :class=> "btn btn-default" %>
+    <% end %>
+    <%= link_to 'Record Voicemail', new_voicemail_path, :class=>"btn btn-default" %>
+
+  </div>
   <div class="system-container">
     <h4>Telephony Interface</h4>
     <table class="table table-striped">
@@ -75,10 +77,10 @@
       </thead>
       <tbody>
         <% @logs.first(10).each do |log| %>
-          <tr>
-            <td><%= log.description %></td>
-            <td><%= log.created_at %></td>
-          </tr>
+        <tr>
+          <td><%= log.description %></td>
+          <td><%= log.created_at %></td>
+        </tr>
         <%end%>
       </tbody>
     </table>
