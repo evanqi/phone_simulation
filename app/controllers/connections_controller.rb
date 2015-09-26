@@ -50,6 +50,9 @@ class ConnectionsController < ApplicationController
   # PATCH/PUT /connections/1.json
   def update
     respond_to do |format|
+      if @connection.state != connection_params["state"]
+        Log.create(:description => "Connection state changed from " + @connection.state + " to " + connection_params["state"])
+      end
       if @connection.update(connection_params)
         format.html { redirect_to root_path, notice: 'Connection was successfully updated.' }
         format.json { render :show, status: :ok, location: @connection }
