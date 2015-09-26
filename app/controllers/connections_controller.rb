@@ -51,7 +51,7 @@ class ConnectionsController < ApplicationController
   def update
     respond_to do |format|
       if @connection.update(connection_params)
-        format.html { redirect_to @connection, notice: 'Connection was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Connection was successfully updated.' }
         format.json { render :show, status: :ok, location: @connection }
       else
         format.html { render :edit }
