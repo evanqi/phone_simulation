@@ -95,6 +95,7 @@ class ConnectionsController < ApplicationController
     logger.info "Sending digit #{params[:digit]}"
     # Pass the digit to all answering machines
     #
+    Log.create(:description => "Sending digit: #{params[:digit]}")
     redirect_to root_path
   end
 
