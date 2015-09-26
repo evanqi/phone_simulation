@@ -1,0 +1,9 @@
+I, [2015-09-25T23:58:08.629092 #4948]  INFO -- : Refreshing Gem list
+I, [2015-09-25T23:58:10.499209 #4948]  INFO -- : listening on addr=/var/www/phone_simulation/shared/sockets/unicorn.sock fd=11
+I, [2015-09-25T23:58:10.499366 #4948]  INFO -- : worker=0 spawning...
+I, [2015-09-25T23:58:10.500512 #4948]  INFO -- : worker=1 spawning...
+I, [2015-09-25T23:58:10.501652 #4948]  INFO -- : master process ready
+I, [2015-09-25T23:58:10.509888 #4951]  INFO -- : worker=0 spawned pid=4951
+I, [2015-09-25T23:58:10.511434 #4953]  INFO -- : worker=1 spawned pid=4953
+I, [2015-09-25T23:58:10.513702 #4951]  INFO -- : worker=0 ready
+I, [2015-09-25T23:58:10.516051 #4953]  INFO -- : worker=1 ready
