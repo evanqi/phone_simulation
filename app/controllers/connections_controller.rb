@@ -76,7 +76,8 @@ class ConnectionsController < ApplicationController
   def return_greeting
     @connection.update_attribute(:state, :recording)
     # Pass greeting back to external phone
-    logger.info "Returning voicemail greeting #{params[:greeting]}"
+    #
+    redirect_to root_path
   end
 
   # POST /connections/1/leave_voicemail
@@ -84,6 +85,8 @@ class ConnectionsController < ApplicationController
   def leave_voicemail
     logger.info "Sending voicemail #{params[:voicemail]}"
     # Store voicemail for this connection
+    #
+    redirect_to root_path
   end
 
   # POST /connections/1/send_digit
@@ -91,6 +94,8 @@ class ConnectionsController < ApplicationController
   def send_digit
     logger.info "Sending digit #{params[:digit]}"
     # Pass the digit to all answering machines
+    #
+    redirect_to root_path
   end
 
   private

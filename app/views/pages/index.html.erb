@@ -215,7 +215,7 @@
         <%= link_to 'Start Call', new_connection_path, :class=>"btn btn-default" %>
       <% end %>
 
-      <%= link_to 'Send Digit',send_digit_connection_path(@con.id), :class=>"btn btn-default" %>
+      <%= link_to 'Send Digit',send_digit_connection_path(@con.id), method: :post, :class=>"btn btn-default" %>
       <%= link_to 'Record Voicemail', new_voicemail_path, :class=>"btn btn-default" %>
 
       <% if !@con.nil? %>
